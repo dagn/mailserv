@@ -59,13 +59,8 @@ class Ntp < ActiveRecord::BaseWithoutTable
     end
     Sudo.write("/etc/rc.conf.local", out)
     if %x{uname -s}.strip == "OpenBSD"
-<<<<<<< HEAD:admin/lib/ntp.rb
         Sudo.exec "pkill ntpd"
         Sudo.exec "/usr/sbin/ntpd" if enabled
-=======
-      Sudo.exec "pkill ntpd"
-       Sudo.exec "/usr/sbin/ntpd" if enabled
->>>>>>> ee8eaab77b47aa36359803e204d787f918fb5985:admin/lib/ntp.rb
     end
     true
   end
